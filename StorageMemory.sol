@@ -3,7 +3,6 @@ pragma solidity >=0.7.0 <0.9.0;
 
 contract Counter {
     uint number;
-    uint[] realG;
 
     function computeSum(uint[] memory increments, uint len) private pure returns (uint sum) {
         uint i;
