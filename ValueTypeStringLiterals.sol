@@ -2,7 +2,7 @@
 pragma solidity >=0.7.0 <0.9.0;
 
 contract ValueTypeStringLiterals {
-    function num() public pure returns (bytes32, bytes32, bytes32, bytes32, bytes32, bytes32, bytes32, bytes32, bytes32, bytes32, bytes32, bytes32) {
+    function num() public pure returns (string memory, string memory, string memory, string memory, string memory, string memory, string memory, string memory, string memory, string memory, string memory, string memory) {
       return (
         "hi",    // 使用双引号
         'hello', // 使用单引号
