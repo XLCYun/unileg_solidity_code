@@ -17,13 +17,13 @@ contract ValueTypeEnum {
         Fruit a = Fruit.Watermelon;
 
         return (
-            defaultFruit,
-            uint(defaultFruit),
-            a,
-            uint(a),
-            Fruit(1),
-            type(Fruit).min,
-            type(Fruit).max
+            defaultFruit,       // 0: 默认为 Apple <=> 0
+            uint(defaultFruit), // 0: Apple <=> 0
+            a,                  // 2: Watermelon <=> 2
+            uint(a),            // 2: Watermelon <=> 2
+            Fruit(1),           // 1: Banana <=> 1
+            type(Fruit).min,    // 0: 最小取值为 0 <=> Apple
+            type(Fruit).max     // 2: 最大取值为 2 <=> Watermelon
         );
     }
 }
