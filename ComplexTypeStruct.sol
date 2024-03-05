@@ -8,12 +8,10 @@ contract ComplexTypeStruct {
         People[] sons;
     }
 
-    People father;
-
-    function addSon(string calldata name, uint8 age) public {
-        People memory son;
-        son.name = name;
-        son.age = age;
-        father.sons.push(son);
+    struct People2 {
+        string name;
+        uint8 age;
+        mapping(uint => People2) sons;
+        uint[] sonsKeys;
     }
 }
