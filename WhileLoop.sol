@@ -7,6 +7,7 @@ contract WhileLoop {
       // 计算 1+2+...+n
       while(n > 0){
         res += n;
+        n = n - 1;
       }
       return res;
     }
