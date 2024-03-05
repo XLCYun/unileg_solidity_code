@@ -2,7 +2,7 @@
 pragma solidity >=0.7.0 <0.9.0;
 
 contract ValueTypeArray {
-    int[] storageArray; // 只有 storage 存储区，才支持长度可变的动态数组
+    int[] public storageArray; // 只有 storage 存储区，才支持长度可变的动态数组
 
     function test() public returns (int[5] memory, uint, uint) {
         int[5] memory memoryArray; // 长度为 5 的 int 数组
