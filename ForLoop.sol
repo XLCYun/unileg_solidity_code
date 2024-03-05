@@ -5,7 +5,7 @@ contract ForLoop {
     function sum(uint n) public pure returns (uint) {
       uint res = 0;
       // 计算 1+2+...+n
-      for(uint i = 0; i < n; i++) {
+      for(uint i = 0; i <= n; i++) {
         res = res + i;
       }
       return res;
