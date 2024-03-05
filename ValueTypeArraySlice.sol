@@ -2,8 +2,9 @@
 pragma solidity >=0.7.0 <0.9.0;
 
 contract ValueTypeArraySlice {
-  function slice(string calldata echo) public pure returns (bytes memory) {
-    bytes calldata arr = bytes(echo);
-    return arr[:5];
+  function slice(bytes calldata echo) public pure returns (bytes memory) {
+    bytes memory a = hex"01";
+    a = bytes.concat(a, echo[:5]);
+    return a;
   }
 }
