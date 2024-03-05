@@ -10,8 +10,10 @@ contract ComplexTypeStruct {
 
     People father;
 
-    function addSon() public {
+    function addSon(string calldata name, uint8 age) public {
         People memory son;
+        son.name = name;
+        son.age = age;
         father.sons.push(son);
     }
 }
