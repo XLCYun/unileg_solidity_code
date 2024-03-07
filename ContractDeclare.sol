@@ -10,7 +10,7 @@ contract ContractDeclare {
       string nickname;
       Age age;
     }
-    User[] users;                         // 状态变量
+    User[] public users;                         // 状态变量
 
     // 合约函数
     function register(string calldata nickname, Age age) external {
