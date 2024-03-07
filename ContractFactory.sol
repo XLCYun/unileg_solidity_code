@@ -1,23 +1,24 @@
 // SPDX-License-Identifier: GPL-3.0
 pragma solidity >=0.7.0 <0.9.0;
 
-contract ContractDeclare {
-    address[] usersAddress;               // 状态变量
-    mapping (address => uint) tokenCount; // 状态变量
-    type Age is uint8;                    // 自定义类型
-    struct User {                         // struct 结构体
-      address addr;
-      string nickname;
-      Age age;
-    }
-    User[] public users;                         // 状态变量
+/// @title 用户合约
+contract UserContract {
+    address owner;
+    string nickname;
 
-    // 合约函数
-    function register(string calldata nickname, Age age) external {
-      User memory newUser;
-      newUser.nickname = nickname;
-      newUser.age = age;
-      newUser.addr = msg.sender;
-      users.push(newUser);
+    constructor(string memory _nickname) {
+        owner = msg.sender;
+        nickname = _nickname;
+    }
+}
+
+/// @title 合约工厂
+contract ContractFactory {
+    mapping(address => UserContract) public contractMap; // 记录每个用户的合约
+
+    /// @notice 创建用户合约
+    function createContract(string calldata nickname) external {
+        UserContract c = new UserContract(nickname);
+        contractMap[msg.sender] = c;
     }
 }
