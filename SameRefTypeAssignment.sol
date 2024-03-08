@@ -14,7 +14,7 @@ contract SameRefTypeAssignment {
         memoryB = memoryA;
 
         int256[] storage storageB;
-        // 合法，storageB 和 storageA 现在指向 memory 中的同一片数据，未发生数组拷贝
+        // 合法，storageB 和 storageA 现在指向 storage 中的同一片数据，未发生数组拷贝
         storageB = storageA;
     }
 }
