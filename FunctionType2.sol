@@ -12,5 +12,7 @@ contract FunctionType2 {
         function() external fn4;
         // 带状态可变性声明
         function() pure fn5;
+        // 带可支付声明
+        function() external payable fn6;
     }
 }
