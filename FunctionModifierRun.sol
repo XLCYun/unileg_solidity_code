@@ -10,7 +10,7 @@ contract FunctionModifierRun {
 
     // 使用修饰符 run(10) 来让函数体 `a++` 执行 10 次，实现 + 10
     function addTen() public run(10) {
-      a++;
+        a++;
     }
 
     // 使用修饰符 run(n) 来让函数体 `a++` 执行 n 次，实现 + n
