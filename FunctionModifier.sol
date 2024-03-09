@@ -8,7 +8,9 @@ contract FunctionModifiyer {
         owner = msg.sender;
     }
 
+    // 定义一个函数修饰符
     modifier onlyOwner() {
+        // 检查调用者必须是合约拥有者
         require(msg.sender == owner, unicode"调用者非合约拥有者");
         _;
     }
