@@ -21,7 +21,27 @@ interface SayHi {
     function sayHi() external returns (string memory);
 }
 
-// 实现接口 SayHi
+// 合约实现接口 SayHi
 contract Friend is SayHi {
-    function sayHi() external returns (string memory) {}
+    function sayHi() external pure returns (string memory) {
+        return "Hi";
+    }
+}
+
+// 接口继承接口 SayHi
+interface People is SayHi {
+
+}
+
+// 继承多个接口
+interface SayHi1 {
+    function sayHi() external returns (string memory);
+}
+
+interface SayHi2 {
+    function sayHi() external returns (string memory);
+}
+
+interface People2 is SayHi1, SayHi2 {
+    function sayHi() external override(SayHi1, SayHi2) returns (string memory);
 }
