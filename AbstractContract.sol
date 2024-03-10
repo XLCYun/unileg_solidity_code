@@ -7,8 +7,15 @@ abstract contract SayHiSayBye {
     function sayBye() external virtual returns (string memory);
 }
 
-abstract contract SayHi is SayHiSayBye {
+// 继承另一个抽象合约，只实现其中的 sayHi 抽象函数
+abstract contract SubSayHiSayBye is SayHiSayBye {
     function sayHi() external pure override returns (string memory) {
         return "Hi";
+    }
+}
+
+contract Greeting is SubSayHiSayBye {
+    function sayBye() external pure override returns (string memory) {
+        return "Bye";
     }
 }
