@@ -18,5 +18,10 @@ interface SayHi {
     }
 
     // 声明外部接口函数，默认为 virtual
-    function sayHi() external virtual returns (string memory);
+    function sayHi() external returns (string memory);
+}
+
+// 实现接口 SayHi
+contract Friend is SayHi {
+    function sayHi() external returns (string memory) {}
 }
