@@ -15,7 +15,16 @@ abstract contract Greeting {
 
 // 英文版具体合约，可以被实例化
 contract EnglishGreeting is Greeting {
-  // 内部未重新实现 sayHi, sayBye 两个虚函数
-  // 但仍然是合法的，此时将使用虚函数的默认实现
+    // 内部未重新实现 sayHi, sayBye 两个虚函数
+    // 但仍然是合法的，此时将使用虚函数的默认实现
 }
 
+contract ChineseGreeting is Greeting {
+    function sayHi() external pure override returns (string memory) {
+        return unicode"你好";
+    }
+
+    function sayBye() external pure override returns (string memory) {
+        return unicode"拜拜";
+    }
+}
