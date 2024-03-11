@@ -16,37 +16,37 @@ contract Base {
         return result;
     }
 
-    function clear() public virtual {
+    function clean() public virtual {
         // 做一些 Base 相关的清理工作
         seq.push("Base");
     }
 }
 
 contract Base1 is Base {
-    function clear() public virtual override {
+    function clean() public virtual override {
         // 做一些 Base1 相关的一些清理工作
         seq.push("Base1");
         // 调用父类，进行父类清理工作
         // 直接使用父类的名称来调用，好像没有什么问题？
-        Base.clear();
+        Base.clean();
     }
 }
 
 contract Base2 is Base {
-    function clear() public virtual override {
+    function clean() public virtual override {
         // 做一些 Base2 相关的一些清理工作
         seq.push("Base2");
         // 调用父类，进行父类清理工作
         // 直接使用父类的名称来调用，好像没有什么问题？
-        Base.clear();
+        Base.clean();
     }
 }
 
 contract C is Base1, Base2 {
-    function clear() public override(Base1, Base2) {
+    function clean() public override(Base1, Base2) {
         // 做一些清理工作
         seq.push("C");
         // 调用父类，进行父类的清理工作
-        super.clear();
+        super.clean();
     }
 }
