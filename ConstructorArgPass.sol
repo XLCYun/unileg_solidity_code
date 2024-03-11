@@ -12,7 +12,7 @@ contract Base {
 contract C is Base {
     // Base(x_) 传递参数给 Base 构造函数
     constructor(uint x_) Base(x_) {
-        // Base.constructor 先调用过，x 值最终为 7
+        // Base.constructor 先调用过，x 值最终为 x_ + 2
         x += 2;
     }
 }
