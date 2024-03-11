@@ -8,8 +8,14 @@ contract Greeting {
     }
 }
 
-contract ChineseGreeting {
-    function sayHi() public pure returns (string memory) {
+contract ChineseGreeting is Greeting {
+    function sayHi() public pure override returns (string memory) {
         return unicode"你好！";
+    }
+}
+
+contract ChinesePolitelyGreeting is ChineseGreeting {
+    function sayHi() public pure override returns (string memory) {
+        return unicode"您好！";
     }
 }
