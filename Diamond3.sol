@@ -73,7 +73,7 @@ contract K3 is D, A {
     }
 }
 
-contract Z is K3, K2, K1 {
+contract Z is K1, K2, K3 {
     function clean() public override(K1, K2, K3) {
         cleanSeq.push("Z");
         super.clean();
