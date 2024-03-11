@@ -3,7 +3,7 @@ pragma solidity >=0.7.1 <0.9.0;
 
 library Math {
     // 库中的外部函数
-    function max(uint a, uint b) public pure returns (uint) {
+    function max(uint a, uint b) external pure returns (uint) {
         return a > b ? a : b;
     }
 }
