@@ -11,7 +11,7 @@ library Math {
 }
 
 contract LibraryInternal {
-    function test() public view returns (address) {
-        return Math.max();
+    function getMaxThisAddress() public view returns (bool) {
+        return address(this) == Math.max();
     }
 }
