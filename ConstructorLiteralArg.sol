@@ -9,6 +9,7 @@ contract Base {
     }
 }
 
+// Base(5) 给出 Base 构造函数参数
 contract C is Base(5) {
     constructor() {
         // Base.constructor 先调用过，x 值最终为 7
