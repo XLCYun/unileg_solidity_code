@@ -46,7 +46,9 @@ contract C is Base1, Base2 {
     function clean() public override(Base1, Base2) {
         // 做一些清理工作
         seq.push("C");
-        // 调用父类，进行父类的清理工作
-        super.clean();
+        // 分别调用父类的 clean 函数
+        // 岂不是会导致 Base.clean() 被调用了两次？
+        Base2.clean();
+        Base1.clean();
     }
 }
