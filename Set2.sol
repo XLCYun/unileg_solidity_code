@@ -6,6 +6,8 @@ struct Set {
     int[] elements;
 }
 
+using SetOp for Set global;
+
 /// @dev 数组实现的集合操作
 library SetOp {
     /// @notice 判断集合内是否存在存在某元素
