@@ -2,12 +2,16 @@
 pragma solidity >=0.7.1 <0.9.0;
 
 library L {
-    function isEven(int a) internal pure returns (bool) {
-        return a % 2 == 0;
+    // 下面需要将 isEven 附加到 int 类型
+    // 将调用 int a = 3; a.isEven() 时，a 会做为第一个参数 self 传入
+    function isEven(int self) internal pure returns (bool) {
+        return self % 2 == 0;
     }
 
-    function isOdd(int a) internal pure returns (bool) {
-        return a % 2 != 0;
+    // 下面需要将 isEven 附加到 int 类型
+    // 将调用 int a = 3; a.isOdd() 时，a 会做为第一个参数 self 传入
+    function isOdd(int self) internal pure returns (bool) {
+        return self % 2 != 0;
     }
 }
 
