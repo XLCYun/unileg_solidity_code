@@ -10,28 +10,27 @@ contract TestSet {
 
     function test() public returns (Set memory, Set memory) {
         set1.insert(0);
-        // SetOp.insert(set1, 0);
-        // SetOp.insert(set1, 2);
-        // SetOp.insert(set1, 4);
-        // SetOp.insert(set1, 6);
+        set1.insert(2);
+        set1.insert(4);
+        set1.insert(6);
         // set1: 0, 2, 4, 6
 
-        // SetOp.insert(set2, 1);
-        // SetOp.insert(set2, 3);
-        // SetOp.insert(set2, 5);
-        // SetOp.insert(set2, 7);
+        set2.insert(1);
+        set2.insert(3);
+        set2.insert(5);
+        set2.insert(7);
         // set2: 1, 3, 5, 7
 
-        // SetOp.remove(set1, 2);
-        // SetOp.remove(set2, 5);
+        set1.remove(2);
+        set2.remove(5);
         // set1: 0, 4, 6
         // set2: 1, 3, 7
 
-        // SetOp.union(set1, set2);
+        set1.union(set2);
         // set1: 0, 4, 6, 1, 3, 7
         // set2: 1, 3, 7
 
-        // SetOp.diff(set2, set1);
+        set2.diff(set1);
         // set1: 0, 4, 6, 1, 3, 7
         // set2:
 
