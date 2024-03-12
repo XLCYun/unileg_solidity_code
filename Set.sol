@@ -58,4 +58,12 @@ library SetOp {
         for (uint i = 0; i < diffSet.elements.length; i++)
             remove(self, diffSet.elements[i]);
     }
+
+    /// @notice 获取所有元素
+    /// @param self 集合结构体，交集结果仍存回此集合
+    function getElements(
+        Set storage self
+    ) internal view returns (int[] storage) {
+        return self.elements;
+    }
 }
