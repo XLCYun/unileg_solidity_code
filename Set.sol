@@ -34,9 +34,9 @@ library SetOp {
     /// @param v 要移除的元素
     /// @return bool true 表示移除成功，false 表示元素不存在
     function remove(Set memory self, int v) internal pure returns (bool) {
-        for (uint i = 0; i < self.elements.length; i++)
+        for (uint i = 0; i < self.length; i++)
             if (self.elements[i] == v) {
-                for (i++; i < self.elements.length; i++)
+                for (i++; i < self.length; i++)
                     self.elements[i - 1] = self.elements[i];
                 self.length--;
                 return true;
@@ -48,7 +48,7 @@ library SetOp {
     /// @param self 集合结构体，并集结果仍存回此集合
     /// @param unionSet 将此集合元素并入 self 集合
     function union(Set memory self, Set memory unionSet) pure internal {
-        for (uint i = 0; i < unionSet.elements.length; i++)
+        for (uint i = 0; i < unionSet.length; i++)
             insert(self, unionSet.elements[i]);
     }
 
@@ -56,7 +56,7 @@ library SetOp {
     /// @param self 集合结构体，交集结果仍存回此集合
     /// @param diffSet 将此集合元素与 self 取交集，不修改此集合
     function diff(Set memory self, Set memory diffSet) internal pure {
-        for (uint i = 0; i < diffSet.elements.length; i++)
+        for (uint i = 0; i < diffSet.length; i++)
             remove(self, diffSet.elements[i]);
     }
 }

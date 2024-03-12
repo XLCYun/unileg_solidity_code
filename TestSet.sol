@@ -2,13 +2,12 @@
 pragma solidity >=0.7.1 <0.9.0;
 
 // 导入 SetOp 库
-import { SetOp } from "./Set.sol";
+import { SetOp, Set } from "./Set.sol";
 
 contract TestSet {
-    SetOp.Set set1;
-    SetOp.Set set2;
-
-    function test() public returns (SetOp.Set memory, SetOp.Set memory) {
+    function test() public pure returns (Set memory, Set memory) {
+        Set memory set1;
+        Set memory set2;
         SetOp.insert(set1, 0);
         SetOp.insert(set1, 2);
         SetOp.insert(set1, 4);
