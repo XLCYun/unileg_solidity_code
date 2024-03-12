@@ -2,7 +2,7 @@
 pragma solidity >=0.7.1 <0.9.0;
 
 // 导入 SetOp 库
-import {SmallSetOp, SmallSet} from "./SmallSetUsingFor.sol";
+import {SmallSet} from "./SmallSetUsingFor.sol";
 
 contract TestSet {
     SmallSet public set1;
