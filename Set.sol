@@ -35,7 +35,7 @@ library SetOp {
     function remove(Set storage self, int v) internal returns (bool) {
         for (uint i = 0; i < self.elements.length; i++)
             if (self.elements[i] == v) {
-                for (i++; i < self.elements.length - 1; i++)
+                for (i++; i < self.elements.length; i++)
                     self.elements[i - 1] = self.elements[i];
                 self.elements.pop();
                 return true;
