@@ -17,10 +17,10 @@ library SmallSetOp {
         return false;
     }
 
-    /// @notice 插入元素到集合中
-    /// @param self 集合结构体
+    /// @notice 在原集合的基础上，插入新元素，并返回插入后的新集合
+    /// @param self 原集合
     /// @param v 要插入的元素
-    /// @return bool true 表示插入成功，false 表示元素已存在
+    /// @return 返回原集合插入元素后的集合
     function insert(SmallSet self, uint8 v) internal pure returns (SmallSet) {
         if (has(self, v)) return self;
         bytes32 b = SmallSet.unwrap(self);
@@ -30,10 +30,10 @@ library SmallSetOp {
         return self;
     }
 
-    /// @notice 从集合中移除元素
-    /// @param self 集合结构体
+    /// @notice 从集合中移除元素，并返回移除目标元素后的新集合
+    /// @param self 集合
     /// @param v 要移除的元素
-    /// @return bool true 表示移除成功，false 表示元素不存在
+    /// @return SmallSet 返回移除目标元素后的新集合
     function remove(SmallSet self, uint8 v) internal pure returns (SmallSet) {
         bytes32 b = SmallSet.unwrap(self);
         bytes1 target = bytes1(v);
@@ -45,29 +45,22 @@ library SmallSetOp {
     }
 
     /// @notice 并集操作
-    /// @param self 集合结构体，并集结果仍存回此集合
-    /// @param unionSet 将此集合元素并入 self 集合
-    function union(SmallSet self, SmallSet unionSet)
-        internal
-        pure
-        returns (SmallSet)
-    {
+    /// @param self 并集集合1
+    /// @param unionSet 并集集合2
+    /// @return 返回集合1与集合2并集后的结果集合
+    function union(SmallSet self, SmallSet unionSet) internal pure returns (SmallSet) {
         bytes32 b = SmallSet.unwrap(unionSet);
         for (uint256 i = 0; i < 32; i++) self = insert(self, uint8(b[i]));
         return self;
     }
 
     /// @notice 交集操作
-    /// @param self 集合结构体，交集结果仍存回此集合
-    /// @param diffSet 将此集合元素与 self 取交集，不修改此集合
-    function diff(SmallSet self, SmallSet diffSet)
-        internal
-        pure
-        returns (SmallSet)
-    {
+    /// @param self 集合1
+    /// @param diffSet 集合2：集合1中要移除的元素的集合
+    /// @return 返回集合1中移除集合2中的元素之后的新集合
+    function diff(SmallSet self,SmallSet diffSet) internal pure returns (SmallSet) {
         bytes32 b = SmallSet.unwrap(diffSet);
         for (uint256 i = 0; i < 32; i++) self = remove(self, uint8(b[i]));
         return self;
     }
 }
-
