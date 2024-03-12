@@ -4,7 +4,7 @@ pragma solidity >=0.7.1 <0.9.0;
 /// @dev bytes32 实现的小集合，每个元素占1个字节，最多32个元素，元素值 1-255，0 视为空位
 type SmallSet is bytes32;
 
-// 将 SetOp 库中的函数附加到 Set 结构体
+// 将 SmallSetOp 库中的函数作为 SmallSet 的成员函数
 using SmallSetOp for SmallSet global;
 
 /// @dev 数组实现的集合操作
