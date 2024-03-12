@@ -5,9 +5,10 @@ pragma solidity >=0.7.1 <0.9.0;
 import { SetOp, Set } from "./Set.sol";
 
 contract TestSet {
-    function test() public pure returns (Set memory, Set memory) {
-        Set memory set1;
-        Set memory set2;
+    Set set1;
+    Set set2;
+
+    function test() public returns (Set memory, Set memory) {
         SetOp.insert(set1, 0);
         SetOp.insert(set1, 2);
         SetOp.insert(set1, 4);
