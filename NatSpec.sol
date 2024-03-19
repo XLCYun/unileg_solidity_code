@@ -15,4 +15,6 @@ contract Tank {
         payable(msg.sender).transfer(value);
         return true;
     }
+
+    receive() external payable {}
 }
