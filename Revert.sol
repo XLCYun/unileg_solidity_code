@@ -13,10 +13,10 @@ contract Revert {
     }
 
     // 一个自定义错误
-    error NotOwned(address from);
+    error NotOwner(address from);
 
     function revert3() public pure {
         // 抛出自定义错误
-        revert NotOwned(msg.sender);
+        revert NotOwner(msg.sender);
     }
 }
