@@ -15,7 +15,7 @@ contract Revert {
     // 一个自定义错误
     error NotOwner(address from);
 
-    function revert3() public pure {
+    function revert3() public view {
         // 抛出自定义错误
         revert NotOwner(msg.sender);
     }
